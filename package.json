@@ -1,0 +1,24 @@
+{
+  "name": "flatdango-movie-tickets",
+  "version": "1.0.0",
+  "description": "application that allows users to purchase movie tickets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rukorio-Vanessa/Flatdango-Movie-Tickets.git"
+  },
+  "keywords": [
+    "fetch",
+    "patch",
+    "post"
+  ],
+  "author": "Vanessa Rukorio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rukorio-Vanessa/Flatdango-Movie-Tickets/issues"
+  },
+  "homepage": "https://github.com/Rukorio-Vanessa/Flatdango-Movie-Tickets#readme"
+}
