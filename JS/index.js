@@ -1,20 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // create random meal element
+    // create movie element
     function generateAnAnimal(movie){
-        let animalList = document.createElement('li')
-        animalList.className = 'list'
-        animalList.innerHTML = `
-          <img src="${animal.image}">
+        let movieList = document.createElement('li')
+        movieList.className = 'list'
+        movieList.innerHTML = `
+          <img src="${movie.poster}">
           <div class="info">
-          <h4>${animal.id}</h4>
-          <h4>${animal.name}</h4>
-          <p>$<span class="vote-count">${animal.votes}</span> Voted </p>
-          </div>
+          <h2>${movie.title}</h2>
+          <h4>${movie.description}</h4>
+          <h5>${movie.showtime}</h5>
+          <h5>${movie.runtime}</h5>
+    
           <div class="button">
-            <button> VOTE </button>
+            <button> BUY A TICKET </button>
           </div>  
           `
-    //add the animal list to DOM
-    document.getElementById("animal-list").appendChild(animalList)  
+    //add the movie list to DOM
+    document.getElementById("movie-list").appendChild(movieList)  
     }
 })
