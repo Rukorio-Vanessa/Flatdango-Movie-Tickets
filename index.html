@@ -2,11 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content=""IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content=""width=device-width, initial-scale=1>
         <title>Flatdango Movie Tickets</title>
         <link rel="stylesheet" href="./CSS/main.css">
         <link rel="stylesheet" href="./CSS/bootstrap.css">
+        <script defer type="text/javascript" src="JS/index.js"></script>
     </head>
     <body>
         <nav class="navbar fixed-top bg-primary">
@@ -15,19 +16,25 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Movies
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><button class="dropdown-item" type="button">Action</button></li>
-                      <li><button class="dropdown-item" type="button">Another action</button></li>
-                      <li><button class="dropdown-item" type="button">Something else here</button></li>
+                    <ul class="dropdown-menu" id="films">
+                      <li><button class="dropdown-item" type="button">The Giant Gila Monster</button></li>
+                      <li><button class="dropdown-item" type="button">Manos: The Hands Of Fate</button></li>
+                      <li><button class="dropdown-item" type="button">Something else here</button></li> 
                     </ul>
-                </div>  
+                </div> 
+               <!--<select name="Movies" id="movie-list"> 
+                    <option value="New York"> York</option> 
+                    <option value="Boston">Boston</option> 
+                    <option value="Montreal">Montreal</option> 
+                </select> -->
               <a class="navbar-brand" href="#">FLATIRON MOVIE TICKETS</a>
             </div>
         </nav>
     
         <header>
             <h1>BUY YOUR TICKETS HERE!</h1>
-            <h3>Movies Showing</h3>
+            <h1>Movies Showing</h1>
+            
             <div class ="container">
                 <ol id="movie-list">
                  <!--movie list -->
@@ -36,7 +43,6 @@
             </div>
         </header>
 
-        <script type="text/javascript" src="Js/bootstrap.js"></script>
         <script type="text/javascript" src="Js/index.js></script>
     </body>
 </html>

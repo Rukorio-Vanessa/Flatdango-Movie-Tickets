@@ -1,21 +1,65 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // create movie element
-    function generateAnAnimal(movie){
-        let movieList = document.createElement('li')
-        movieList.className = 'list'
-        movieList.innerHTML = `
-          <img src="${movie.poster}">
-          <div class="info">
-          <h2>${movie.title}</h2>
-          <h4>${movie.description}</h4>
-          <h5>${movie.showtime}</h5>
-          <h5>${movie.runtime}</h5>
+document.body.style.backgroundColor = "grey"
+//document.querySelector("#movie-list")
+
+// create movie element
+function createMovie(movie){
     
-          <div class="button">
-            <button> BUY A TICKET </button>
-          </div>  
+    let card = document.createElement('li')
+    card.className = 'card'
+    card.innerHTML = `
+        <img src="${movie.poster}">
+        <div class="content">
+        <h2>${movie.title}</h2>
+        <h4>${movie.description}</h4>
+        <h5>Showtime:${movie.showtime}</h5>
+        <h5>${movie.runtime}minutes</h5>
+        <h3>${movie.capacity}</h5>
+        <h6>${movie.tickets_sold}</h5
+        <p><span class="ticket-count">${logOfTickets()}</span> Tickets Left </p
+        <div class="button">
+        <button> BUY A TICKET </button>
+        </div>  
           `
-    //add the movie list to DOM
-    document.getElementById("movie-list").appendChild(movieList)  
+   
+     //add the movie list to DOM
+    document.getElementById("movie-list").appendChild(card)  
+    //const button = document.querySelector(".button")
+    //button.addEventListener('click', logOfTickets)   
+
+function logOfTickets(e){ 
+    
+    let remainingTickets = movie.capacity - movie.tickets_sold
+    console.log(remainingTickets)
+    return remainingTickets
+    if(remainingTickets > 0){
+        remainingTickets = remainingTickets -1 
+        return remainingTickets
+        card.querySelector('span').textContent = `${remainingTickets}`
     }
-})
+    else{
+        console.log('SOLD OUT')
+    }
+}
+logOfTickets()
+//document.querySelector(".button").addEventListener('click', logOfTickets)
+}
+function movieMenu(){
+    const menuButton = document.querySelector("#movie-list")
+    menuButton.addEventListener('click', function(event) { 
+        console.log(event.target.value) }) 
+        
+}
+movieMenu()
+
+//fetch list of animals for resources
+function getMovies(){
+    fetch("http://localhost:3000/films")
+    .then((resp) => resp.json())
+    .then(data => data.forEach(movie => createMovie(movie)))
+}
+//retrieve data and render the animal list to the DOM
+function initialize(){
+    getMovies()
+}
+initialize()
+
