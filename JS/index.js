@@ -4,7 +4,21 @@ document.body.style.backgroundColor = "grey"
 // create movie element
 
 function createMovie(movie){
-    //var remainingTickets = movie.capacity - movie.tickets_sold
+    let remainingTickets = movie.capacity - movie.tickets_sold
+    function logOfTickets(){
+        if(remainingTickets > 0){
+            remainingTickets = remainingTickets - 1
+            return remainingTickets
+            let span = document.getElementsByClassName("ticket-count")
+            span.forEach(()=>innerHTML = `${remainingTickets}`)
+            return span
+        }
+        else{
+            document.querySelector("span").innerHTML = `SOLD OUT!`
+            console.log('SOLD OUT')
+        }
+    }
+   
     let card = document.createElement('li')
     card.className = 'card'
     card.innerHTML = `
@@ -16,9 +30,9 @@ function createMovie(movie){
         <h5>${movie.runtime}minutes</h5>
         <h3>${movie.capacity}</h5>
         <h6>${movie.tickets_sold}</h5
-        <p><span class="ticket-count">y</span> Tickets Left</p>
+        <p><span class="ticket-count">${remainingTickets}</span> Tickets Left</p>
         <div class="button" id="purchase">
-        <button id="purchase-buttton"> BUY A TICKET </button>
+        <button id="purchase-buttton"> BUY A TICKET @500/=</button>
         </div>  
         `
      //add the movie list to DOM
@@ -30,24 +44,26 @@ function createMovie(movie){
 
     const button = document.getElementById("purchase")
     //console.log(button)
-    button.addEventListener('click', ()=>{
-        var remainingTickets = movie.capacity - movie.tickets_sold
+    button.addEventListener('click', logOfTickets)
+        //var remainingTickets = movie.capacity - movie.tickets_sold
     //console.log(remainingTickets)
-    return remainingTickets
-    if(remainingTickets > 0){
-        remainingTickets -= 1
-        return remainingTickets
-        //document.querySelector("span").innerHTML = remainingTickets
+    //ssreturn remainingTickets
+    //ssif(remainingTickets > 0){
+        //remainingTickets -= 1
         //return remainingTickets
-        card.querySelector('span').textContent = `${remainingTickets}`
-    }
-    else{
-        document.querySelector("span").innerHTML = "SOLD OUT!"
-        console.log('SOLD OUT')
-    }
-    })   
+        //sslet span = document.querySelector("span")
+        //ssspan.innerHTML = remainingTickets -=1
+        //ssreturn span
+        //return remainingTickets
+        //card.querySelector('span').textContent = `${remainingTickets}`
+    //ss}
+    //sselse{
+        //ssdocument.querySelector("span").innerHTML = "SOLD OUT!"
+        //ssconsole.log('SOLD OUT')
+    //ss}
+    //ss})   
     
-
+}
 
 
 
@@ -55,7 +71,7 @@ function createMovie(movie){
 
 //button.addEventListener('click', logOfTickets)
 
-}
+
 
 function createMovieMenu(movie){
 let menu = document.createElement('li')
