@@ -3,7 +3,7 @@ document.body.style.backgroundColor = "grey"
 
 // create movie element
 function createMovie(movie){
-    
+   
     let card = document.createElement('li')
     card.className = 'card'
     card.innerHTML = `
@@ -20,36 +20,62 @@ function createMovie(movie){
         <button> BUY A TICKET </button>
         </div>  
           `
-   
      //add the movie list to DOM
     document.getElementById("movie-list").appendChild(card)  
-    //const button = document.querySelector(".button")
-    //button.addEventListener('click', logOfTickets)   
 
-function logOfTickets(e){ 
+    const button = document.querySelector("button")
+    button.addEventListener('click', logOfTickets)   
     
-    let remainingTickets = movie.capacity - movie.tickets_sold
-    console.log(remainingTickets)
+function logOfTickets(){ 
+    
+    const remainingTickets = movie.capacity - movie.tickets_sold
+    //console.log(remainingTickets)
     return remainingTickets
     if(remainingTickets > 0){
-        remainingTickets = remainingTickets -1 
+        remainingTickets -= 1
         return remainingTickets
-        card.querySelector('span').textContent = `${remainingTickets}`
+        //document.querySelector("span").innerHTML = remainingTickets
+        //return remainingTickets
+        card.querySelector('p').textContent = `${remainingTickets}`
     }
     else{
+        document.querySelector("p").innerHTML = "SOLD OUT!"
         console.log('SOLD OUT')
     }
 }
 logOfTickets()
-//document.querySelector(".button").addEventListener('click', logOfTickets)
+
+
+
+//const button = document.querySelector(".button")
+
+//button.addEventListener('click', logOfTickets)
+
 }
-function movieMenu(){
-    const menuButton = document.querySelector("#movie-list")
-    menuButton.addEventListener('click', function(event) { 
-        console.log(event.target.value) }) 
+function createMovieMenu(movie){
+let menu = document.createElement('ul')
+    menu.className = 'dropdown-menu'
+    menu.id = 'films'
+    menu.innerHTML = `
+    <li><button class="dropdown-item" type="button"> ${movie.title} </button></li>  `
+    document.querySelector(".dropdown").appendChild(menu)
+    
+
+//function movieMenu(){
+    const menuButton = document.querySelector("#menu-button").addEventListener('click', createMovieMenu)
+    //menuButton.addEventListener('click', function(event) { 
+        //console.log(event.target.value) //}) 
         
 }
-movieMenu()
+//movieMenu()
+//}
+
+function getMenuNames(){
+    fetch("http://localhost:3000/films/")
+    .then((resp) => resp.json())
+    .then(data => data.forEach(movie => createMovieMenu(movie)))
+
+}
 
 //fetch list of animals for resources
 function getMovies(){
@@ -60,6 +86,7 @@ function getMovies(){
 //retrieve data and render the animal list to the DOM
 function initialize(){
     getMovies()
+    getMenuNames()
 }
 initialize()
 
