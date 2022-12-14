@@ -3,6 +3,8 @@ Flatdango application for purchasing moving tickets-created using HTML, CSS, and
 ## General Description
 An application that displays movies available for showing at Flatiron Movie theatre and allows a user to purchase a ticket.
 
+You can access this website on this link: https://rukorio-vanessa.github.io/Flatdango-Movie-Tickets/
+
 ## Getting Started
 * To use the content in the repository ensure you have
  - A computer that runs on either: Windows 7+, Linux, Mac OS

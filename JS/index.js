@@ -1,9 +1,10 @@
 document.body.style.backgroundColor = "grey"
 //document.querySelector("#movie-list")
-
+//var remainingTickets = movie.capacity - movie.tickets_sold
 // create movie element
+
 function createMovie(movie){
-   
+    //var remainingTickets = movie.capacity - movie.tickets_sold
     let card = document.createElement('li')
     card.className = 'card'
     card.innerHTML = `
@@ -15,20 +16,22 @@ function createMovie(movie){
         <h5>${movie.runtime}minutes</h5>
         <h3>${movie.capacity}</h5>
         <h6>${movie.tickets_sold}</h5
-        <p><span class="ticket-count">${logOfTickets()}</span> Tickets Left </p
-        <div class="button">
-        <button> BUY A TICKET </button>
+        <p><span class="ticket-count">y</span> Tickets Left</p>
+        <div class="button" id="purchase">
+        <button id="purchase-buttton"> BUY A TICKET </button>
         </div>  
-          `
+        `
      //add the movie list to DOM
     document.getElementById("movie-list").appendChild(card)  
+    
+    //hide capacity and tickets-sold from display webpage
+    document.querySelector("h3").style.display = "none"
+    document.querySelector("h6").style.display = "none"
 
-    const button = document.querySelector("button")
-    button.addEventListener('click', logOfTickets)   
-    
-function logOfTickets(){ 
-    
-    const remainingTickets = movie.capacity - movie.tickets_sold
+    const button = document.getElementById("purchase")
+    //console.log(button)
+    button.addEventListener('click', ()=>{
+        var remainingTickets = movie.capacity - movie.tickets_sold
     //console.log(remainingTickets)
     return remainingTickets
     if(remainingTickets > 0){
@@ -36,14 +39,15 @@ function logOfTickets(){
         return remainingTickets
         //document.querySelector("span").innerHTML = remainingTickets
         //return remainingTickets
-        card.querySelector('p').textContent = `${remainingTickets}`
+        card.querySelector('span').textContent = `${remainingTickets}`
     }
     else{
-        document.querySelector("p").innerHTML = "SOLD OUT!"
+        document.querySelector("span").innerHTML = "SOLD OUT!"
         console.log('SOLD OUT')
     }
-}
-logOfTickets()
+    })   
+    
+
 
 
 
@@ -52,20 +56,31 @@ logOfTickets()
 //button.addEventListener('click', logOfTickets)
 
 }
+
 function createMovieMenu(movie){
-let menu = document.createElement('ul')
-    menu.className = 'dropdown-menu'
-    menu.id = 'films'
+let menu = document.createElement('li')
+    //menu.className = 
+    menu.id = 'menu-list'
     menu.innerHTML = `
-    <li><button class="dropdown-item" type="button"> ${movie.title} </button></li>  `
-    document.querySelector(".dropdown").appendChild(menu)
+    <button class="dropdown-item" type="button"> ${movie.title} </button> `
+    //const li = document.querySelector('#name-list')
     
 
+    //add menu list to the dom
+    document.querySelector(".dropdown-menu").appendChild(menu)
+    //let menuNames =document.querySelector("#dropdown-item")
+    //console.log(menuNames)
+
 //function movieMenu(){
-    const menuButton = document.querySelector("#menu-button").addEventListener('click', createMovieMenu)
+    const menuButton = document.querySelector("#menu-button")
+   // menuButton.addEventListener('click', displayMenuList)
     //menuButton.addEventListener('click', function(event) { 
         //console.log(event.target.value) //}) 
-        
+function displayMenuList() {
+    let menuNames =document.querySelector("#dropdown-item")
+    //console.log(menu)
+}
+displayMenuList()
 }
 //movieMenu()
 //}
