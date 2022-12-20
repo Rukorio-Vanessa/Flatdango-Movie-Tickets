@@ -1,9 +1,9 @@
 document.body.style.backgroundColor = "grey"
-//document.querySelector("#movie-list")
-//var remainingTickets = movie.capacity - movie.tickets_sold
+
 // create movie element
 
 function createMovie(movie){
+    //condition for buying tickets
     let remainingTickets = movie.capacity - movie.tickets_sold
     function logOfTickets(){
         if(remainingTickets > 0){
@@ -45,61 +45,31 @@ function createMovie(movie){
     const button = document.getElementById("purchase")
     //console.log(button)
     button.addEventListener('click', logOfTickets)
-        //var remainingTickets = movie.capacity - movie.tickets_sold
-    //console.log(remainingTickets)
-    //ssreturn remainingTickets
-    //ssif(remainingTickets > 0){
-        //remainingTickets -= 1
-        //return remainingTickets
-        //sslet span = document.querySelector("span")
-        //ssspan.innerHTML = remainingTickets -=1
-        //ssreturn span
-        //return remainingTickets
-        //card.querySelector('span').textContent = `${remainingTickets}`
-    //ss}
-    //sselse{
-        //ssdocument.querySelector("span").innerHTML = "SOLD OUT!"
-        //ssconsole.log('SOLD OUT')
-    //ss}
-    //ss})   
-    
+        
 }
 
-
-
-//const button = document.querySelector(".button")
-
-//button.addEventListener('click', logOfTickets)
 
 
 
 function createMovieMenu(movie){
 let menu = document.createElement('li')
-    //menu.className = 
     menu.id = 'menu-list'
     menu.innerHTML = `
-    <button class="dropdown-item" type="button"> ${movie.title} </button> `
-    //const li = document.querySelector('#name-list')
-    
+    <button class="dropdown-item" type="button"> ${movie.title} </button> `    
 
     //add menu list to the dom
     document.querySelector(".dropdown-menu").appendChild(menu)
-    //let menuNames =document.querySelector("#dropdown-item")
-    //console.log(menuNames)
 
-//function movieMenu(){
     const menuButton = document.querySelector("#menu-button")
-   // menuButton.addEventListener('click', displayMenuList)
-    //menuButton.addEventListener('click', function(event) { 
-        //console.log(event.target.value) //}) 
+   
 function displayMenuList() {
     let menuNames =document.querySelector("#dropdown-item")
     //console.log(menu)
 }
 displayMenuList()
 }
-//movieMenu()
-//}
+
+
 
 function getMenuNames(){
     fetch("http://localhost:3000/films/")
